@@ -27,7 +27,7 @@ public:
             p[i] = i;
     }
     int findSet(int a) {
-        return p[a] == a ? a : p[a] = findSet(p[a]); // storing root/parent of the set and the returning the value : 'path compression'
+        return p[a] == a ? a : p[a] = findSet(p[a]); // storing root/parent of the set and then returning the value : 'path compression'
     }
     bool isSameSet(int a, int b) {
         return findSet(a) == findSet(b);
