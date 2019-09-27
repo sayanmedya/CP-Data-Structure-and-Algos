@@ -27,14 +27,14 @@ public:
             p[i] = i;
     }
     int findSet(int a) {
-        return p[a] == a ? a : p[a] = findSet(p[a]); // storing root/parent of the set and returning the value : 'path compression'
+        return p[a] == a ? a : p[a] = findSet(p[a]); // storing root/parent of the set and the returning the value : 'path compression'
     }
     bool isSameSet(int a, int b) {
         return findSet(a) == findSet(b);
     }
     void unionSet(int a, int b) {
         int x = findSet(a), y = findSet(b);
-        rank[x] < rank[y] ? p[x] = y : p[y] = x; // checking rank of a set to minimize height : 'union by rank'
+        rank[x] < rank[y] ? p[x] = y : p[y] = x; // comparing rank/height of two roots to optimize performance : 'union by rank'
         if (rank[x] == rank[y])
             rank[x]++;
     }
